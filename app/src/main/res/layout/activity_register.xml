@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android = "http://schemas.android.com/apk/res/android"
+        xmlns:app = "http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+
+            android:layout_width = "match_parent"
+            android:layout_height = "match_parent"
+            android:orientation = "vertical"
+            android:padding = "@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id = "@+id/image_back"
+                android:layout_width = "@dimen/_35sdp"
+                android:layout_height = "@dimen/_35sdp"
+                android:src = "@drawable/ic_back"
+                android:visibility = "gone"
+                app:tint = "@color/colorPrimary" />
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:layout_gravity = "center"
+                android:fillViewport = "true"
+                android:gravity = "center">
+
+            <LinearLayout
+                    android:layout_width = "match_parent"
+                    android:layout_height = "wrap_content"
+                    android:orientation = "vertical"
+                    android:padding = "@dimen/_15sdp">
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id = "@+id/img_profile"
+                        android:layout_width = "@dimen/_80sdp"
+                        android:layout_height = "@dimen/_80sdp"
+                        android:layout_gravity = "center"
+                        android:layout_marginBottom = "@dimen/_10sdp"
+                        android:contentDescription = "@null"
+                        android:padding = "@dimen/_5sdp"
+                        android:src = "@drawable/ic_logo" />
+
+
+                  <androidx.appcompat.widget.AppCompatEditText
+                          android:id = "@+id/edt_name"
+                          style = "@style/styleFontRegular"
+                          android:layout_width = "match_parent"
+                          android:layout_height = "wrap_content"
+                          android:layout_marginBottom = "10dp"
+                          android:hint = "@string/str_enter_name"
+                          android:inputType = "textCapWords"
+                          android:padding = "@dimen/_10sdp"
+                          android:singleLine = "true"
+                          android:textColor = "@color/colorBlack"
+                          android:textSize = "@dimen/_14sdp" />
+
+                <!-- Link to Login Screen -->
+
+                <androidx.appcompat.widget.AppCompatEditText
+                        android:id = "@+id/edt_email"
+                        style = "@style/styleFontRegular"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "wrap_content"
+                        android:layout_marginBottom = "@dimen/_10sdp"
+                        android:hint = "@string/str_enter_email"
+                        android:inputType = "textEmailAddress"
+                        android:padding = "@dimen/_10sdp"
+                        android:singleLine = "true"
+                        android:textColor = "@color/colorBlack"
+                        android:textSize = "@dimen/_14sdp" />
+
+
+                <androidx.appcompat.widget.AppCompatEditText
+                        android:id = "@+id/edt_password"
+                        style = "@style/styleFontRegular"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "wrap_content"
+                        android:layout_marginBottom = "@dimen/_10sdp"
+                        android:hint = "@string/str_enter_password"
+                        android:inputType = "textPassword"
+                        android:padding = "@dimen/_10sdp"
+                        android:singleLine = "true"
+                        android:textColor = "@color/colorBlack"
+                        android:textSize = "@dimen/_14sdp" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                        android:id = "@+id/edt_confirm_password"
+                        style = "@style/styleFontRegular"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "wrap_content"
+                        android:layout_marginBottom = "@dimen/_10sdp"
+                        android:hint = "@string/str_enter_password"
+                        android:importantForAutofill = "no"
+                        android:inputType = "textPassword"
+                        android:padding = "@dimen/_10sdp"
+                        android:singleLine = "true"
+                        android:textColor = "@color/colorBlack"
+                        android:textSize = "@dimen/_14sdp" />
+
+                <!-- Login Button -->
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                        android:id = "@+id/btn_register"
+                        style = "@style/styleFontMedium"
+                        android:layout_width = "fill_parent"
+                        android:layout_height = "wrap_content"
+                        android:layout_marginTop = "@dimen/_20sdp"
+                        android:background = "@color/colorPrimary"
+                        android:elevation = "@dimen/_5sdp"
+                        android:text = "@string/str_register"
+                        android:textAllCaps = "false"
+                        android:textColor = "@color/colorWhite"
+                        android:textSize = "@dimen/_14sdp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                        android:id = "@+id/btn_login"
+                        style = "@style/styleFontMedium"
+                        android:layout_width = "match_parent"
+                        android:layout_height = "wrap_content"
+                        android:layout_marginTop = "@dimen/_20sdp"
+                        android:background = "@color/colorGray"
+                        android:text = "@string/login"
+                        android:textAllCaps = "false"
+                        android:textColor = "@color/colorPrimary"
+                        android:textSize = "@dimen/_14sdp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <data>
+
+        <variable
+                name = "register"
+                type = "com.theonetech.android.presentation.view.activity.RegisterActivity" />
+    </data>
+</layout>

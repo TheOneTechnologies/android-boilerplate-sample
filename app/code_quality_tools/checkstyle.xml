@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<module name = "Checker">
+
+<!-- Checks for Naming Conventions-->
+    <!-- See https://checkstyle.sourceforge.net/config_naming.html -->
+    <module name = "MethodName" />
+<module name = "ConstantName" />
+    <!-- Checks for Imports -->
+    <!-- See https://checkstyle.sourceforge.net/config_imports.html-->
+    <module name = "AvoidStarImport" />
+<module name = "UnusedImports" />
+    <!-- Checks for Size -->
+    <!-- Seehttps://checkstyle.sourceforge.net/config_sizes -->
+    <module name = "ParameterNumber">
+<property name = "max" value = "6" />
+</module>
+
+    <module name="TreeWalker"/>
+
+    <!-- other rules ignored for brevity -->
+</module>
+

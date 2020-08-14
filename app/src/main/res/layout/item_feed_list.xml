@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android = "http://schemas.android.com/apk/res/android"
+        xmlns:app = "http://schemas.android.com/apk/res-auto"
+        xmlns:card_view = "http://schemas.android.com/tools">
+        <data>
+            <variable
+                    name = "feed_item"
+                    type = "com.theonetech.android.presentation.adapter.FeedItemAdapter" />
+        </data>
+
+
+    <androidx.cardview.widget.CardView
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:layout_margin = "@dimen/_5sdp"
+            android:background = "@color/colorWhite"
+            android:clipChildren = "false"
+            android:clipToPadding = "false"
+            android:dividerHeight = "0.0px"
+            android:padding = "@dimen/_3sdp"
+            app:cardCornerRadius = "5dp"
+            app:cardElevation = "@dimen/_5sdp"
+            card_view:ignore = "MissingConstraints">
+
+
+        <LinearLayout
+                android:id = "@+id/rl_main"
+                android:layout_width = "match_parent"
+                android:layout_height = "wrap_content"
+                android:orientation = "horizontal"
+
+                >
+
+            <RelativeLayout
+                    android:id = "@+id/rl_date_circle"
+                    android:layout_width = "@dimen/_50sdp"
+                    android:layout_height = "@dimen/_50sdp"
+                    android:layout_margin = "@dimen/_10sdp"
+                    android:background = "@drawable/shape_circle_homework_date">
+
+                <FrameLayout
+                        android:layout_width = "match_parent"
+                        android:layout_height = "wrap_content"
+                        android:layout_centerVertical = "true">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width = "match_parent"
+                            android:layout_height = "match_parent"
+                            android:contentDescription = "@string/image_description"
+                            android:src = "@drawable/ic_calendar"
+                            android:tint = "@android:color/darker_gray"
+                            android:visibility = "gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                            android:id = "@+id/tv_day"
+                            style="@style/styleFontMedium"
+                            android:layout_width = "wrap_content"
+                            android:layout_height = "wrap_content"
+                            android:layout_gravity = "top|center"
+                            android:layout_marginBottom = "@dimen/_15sdp"
+                            android:textColor = "@color/colorPrimary"
+                            android:textSize = "@dimen/_15sdp" />
+
+                   <androidx.appcompat.widget.AppCompatTextView
+                           android:id = "@+id/tv_month_year"
+                           style="@style/styleFontMedium"
+                           android:layout_width = "wrap_content"
+                           android:layout_height = "wrap_content"
+                           android:layout_gravity = "bottom|center"
+                           android:layout_marginTop = "@dimen/_15sdp"
+                           android:textColor = "@color/colorPrimary"
+                           android:textSize = "@dimen/_10sdp"
+                           android:textStyle = "bold" />
+
+                </FrameLayout>
+            </RelativeLayout>
+
+
+              <LinearLayout
+                      android:layout_width = "match_parent"
+                      android:layout_height = "wrap_content"
+                      android:layout_gravity = "center_vertical"
+                      android:layout_marginStart = "@dimen/_5sdp"
+                      android:orientation = "vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id = "@+id/tv_subject_name"
+                    android:layout_width = "wrap_content"
+                    android:layout_height = "wrap_content"
+                    android:padding = "@dimen/_2sdp"
+                    android:textAllCaps = "true"
+                    style="@style/styleFontMedium"
+                    android:textColor = "@color/colorPrimary"
+                    android:textSize = "@dimen/_14sdp"
+                    android:textStyle = "bold" />
+
+          <androidx.appcompat.widget.AppCompatTextView
+                  android:id = "@+id/tv_description"
+                  android:layout_width = "wrap_content"
+                  android:layout_height = "wrap_content"
+                  android:maxLines = "2"
+                  style="@style/styleFontRegular"
+                  android:padding = "@dimen/_2sdp"
+                  android:textColor = "@color/colorPrimary"
+                  android:textSize = "@dimen/_12sdp" />
+
+              </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+    </layout>

@@ -1,0 +1,20 @@
+apply plugin: 'checkstyle'
+checkstyle {
+    // assign the latest checkstyle version explicitly
+    // default version is very old, likes 5.9
+    toolVersion = '8.6'
+    // checkstyle.xml copy from:
+    // https://raw.githubusercontent.com/checkstyle/checkstyle/checkstyle-8.6/src/main/resources/google_checks.xml
+    // the version should be as same as plugin version
+    configFile = rootProject.file("$project.rootDir/app/code_quality_tools/checkstyle.xml")
+}
+task Checkstyle(type: Checkstyle) {
+    source 'src/main/java'
+    include '**/*.java'
+    exclude '**/gen/**'
+    exclude '**/R.java'
+    exclude '**/BuildConfig.java'
+
+    // empty classpath
+    classpath = rootProject.files()
+}
