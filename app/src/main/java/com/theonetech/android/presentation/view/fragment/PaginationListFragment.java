@@ -48,13 +48,19 @@ public class PaginationListFragment extends BaseFragment {
 
     private void initialization() {
         setToolbar();
-
+        // use a linear layout manager
         binding.rvList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        // use this setting to
+        // improve performance if you know that changes
+        // in content do not change the layout size
+        // of the RecyclerView
         binding.rvList.setHasFixedSize(true);
 
         FeedItemViewModel itemViewModel = new ViewModelProvider(this).get(FeedItemViewModel.class);
-
+        // define an adapter
         mFeedAdapter = new FeedItemAdapter();
+        // observe data
         itemViewModel.itemPagedList.observe(getViewLifecycleOwner(), items -> {
             binding.rvList.setVisibility(View.VISIBLE);
             mFeedAdapter.submitList(items);
@@ -62,6 +68,7 @@ public class PaginationListFragment extends BaseFragment {
         });
 
         binding.rvList.setAdapter(mFeedAdapter);
+
     }
 
     private void setToolbar() {
