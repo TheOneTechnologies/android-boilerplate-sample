@@ -1,22 +1,10 @@
 package com.theonetech.android;
 
-import android.content.Context;
-import android.os.Build;
 import android.util.Log;
 
-import com.google.gson.JsonObject;
-import com.theonetech.android.data.connection.ApiInteractor;
-import com.theonetech.android.data.connection.ApiResult;
-import com.theonetech.android.domain.application.GlobalApplication;
-import com.theonetech.android.domain.model.LoginResponse;
-import com.theonetech.android.domain.utils.Const;
 import com.theonetech.android.domain.utils.DateUtils;
 import com.theonetech.android.domain.utils.Logger;
-import com.theonetech.android.domain.utils.NotificationUtils;
-import com.theonetech.android.domain.utils.Utils;
 import com.theonetech.android.domain.utils.ValidationUtils;
-import com.theonetech.android.presentation.view.activity.HomeActivity;
-import com.theonetech.android.presentation.view.activity.LoginActivity;
 
 import org.hamcrest.core.CombinableMatcher;
 import org.junit.Test;
@@ -34,7 +22,14 @@ import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsSame.sameInstance;
 import static org.hamcrest.core.StringContains.containsString;
 import static org.hamcrest.core.StringStartsWith.startsWith;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNotSame;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
 
 
 /**
@@ -73,91 +68,93 @@ public class ExampleUnitTest {
     }
 
 
-
     @Test
-    public void emailValidatore_IsMinLength_Equal_Size() {
+    public void emailValidator_IsMinLength_Equal_Size() {
         //Exception (java.lang.AssertionError)
         assertTrue(ValidationUtils.isMinLength("test@gmail.com", 14));
     }
+
     @Test
-    public void emailValidatore_IsMinlengthSingleChar() {
+    public void emailValidator_IsMinlengthSingleChar() {
         //Exception (java.lang.AssertionError)
         assertTrue(ValidationUtils.isMinLength("test", 4));
     }
+
     @Test
-    public void emailValidatore_IsMinLength_Single_IsValide() {
+    public void emailValidator_IsMinLength_Single_IsValid() {
         //it's valid length of input text
         assertTrue(ValidationUtils.isMinLength("one", 2));
     }
 
 
-
     @Test
-    public void emailValidatore_DateFormateCheck_Valid_Format() {
+    public void emailValidator_DateFormatCheck_Valid_Format() {
         //yyyy-MM-dd'T'HH:ss it's valid format
         String date = DateUtils.parseDateToddMMYY("2020-10-01T09:45");
         assertTrue(date, true);
     }
 
     @Test
-    public void emailValidatore_DateFormateCheck_Invalid_Format() {
+    public void emailValidator_DateFormatCheck_Invalid_Format() {
         //Exception (java.text.ParseException: Unparseable date: "2020-10-01T09-45")
         String date = DateUtils.parseDateToddMMYY("2020-10-01T09-45");
         assertFalse(date, true);
     }
 
     @Test
-    public void emailValidatore_DateFormateCheck_Invalid_Format_Year() {
+    public void emailValidator_DateFormatCheck_Invalid_Format_Year() {
         //Exception (java.text.ParseException: Unparseable date: "200-10-01T09-45")
         String date = DateUtils.parseDateToddMMYY("200-10-01T09-45");
         assertFalse(date, true);
     }
 
 
-
-
     @Test
-    public void emailValidatore_DateFormateCheck_DayFromString() {
-        //Exception (java.text.ParseException: Unparseable date: "200-10-01T09-45")
-        String date = DateUtils.getDayFromString("200-10-01T09-45");
-        assertFalse(date, true);
-    }
-    @Test
-    public void emailValidatore_DateFormateCheck_DayFromString_Year() {
+    public void emailValidator_DateFormatCheck_DayFromString() {
         //Exception (java.text.ParseException: Unparseable date: "200-10-01T09-45")
         String date = DateUtils.getDayFromString("200-10-01T09-45");
         assertFalse(date, true);
     }
 
     @Test
-    public void emailValidatore_DateFormate_DayFromString_Format() {
+    public void emailValidator_DateFormatCheck_DayFromString_Year() {
+        //Exception (java.text.ParseException: Unparseable date: "200-10-01T09-45")
+        String date = DateUtils.getDayFromString("200-10-01T09-45");
+        assertFalse(date, true);
+    }
+
+    @Test
+    public void emailValidator_DateFormat_DayFromString_Format() {
         //yyyy-MM-dd'T'HH:ss it's valid format
         String date = DateUtils.getDayFromString("2020-10-01T09:45");
-        Log.e("====>",""+date);
+        Log.e("====>", "" + date);
         assertTrue(date, true);
     }
 
 
+    @Test
+    public void Logger_Verbose() {
+        Logger.v("Test Verbose" + "Log");
+    }
 
     @Test
-    public void Logger_Verbose(){
-        Logger.v("Test Verbose"+"Log");
+    public void Logger_Debug() {
+        Logger.d("Test Debug" + "Log");
     }
+
     @Test
-    public void Logger_Debug(){
-        Logger.d("Test Debug"+"Log");
+    public void Logger_Info() {
+        Logger.i("Test Info" + "Log");
     }
+
     @Test
-    public void Logger_Info(){
-        Logger.i("Test Info"+"Log");
+    public void Logger_Warning() {
+        Logger.w("Test Warning" + "Log");
     }
+
     @Test
-    public void Logger_Warning(){
-        Logger.w("Test Warning"+"Log");
-    }
-    @Test
-    public void Logger_Error(){
-        Logger.e("Test Error"+"Log");
+    public void Logger_Error() {
+        Logger.e("Test Error" + "Log");
     }
 
 
@@ -223,7 +220,7 @@ public class ExampleUnitTest {
 
     @Test
     public void testAssertThatEveryItemContainsString() {
-        assertThat(Arrays.asList(new String[] { "fun", "ban", "net" }), everyItem(containsString("n")));
+        assertThat(Arrays.asList(new String[]{"fun", "ban", "net"}), everyItem(containsString("n")));
     }
 
     // Core Hamcrest Matchers with assertThat
@@ -231,7 +228,7 @@ public class ExampleUnitTest {
     public void testAssertThatHamcrestCoreMatchers() {
         assertThat("good", allOf(equalTo("good"), startsWith("good")));
         assertThat("good", not(allOf(equalTo("bad"), equalTo("good"))));
-        assertThat(7, not(CombinableMatcher.<Integer> either(equalTo(3)).or(equalTo(4))));
+        assertThat(7, not(CombinableMatcher.<Integer>either(equalTo(3)).or(equalTo(4))));
         assertThat(new Object(), not(sameInstance(new Object())));
     }
 
