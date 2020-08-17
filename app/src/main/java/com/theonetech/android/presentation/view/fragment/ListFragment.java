@@ -32,6 +32,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
  */
 public class ListFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
+
     private FragmentListBinding binding;
     private AlbumsAdapter mAlbumAdapter = null;
     private List<AlbumsItem> mAlbumList = new ArrayList<>();
@@ -57,11 +58,17 @@ public class ListFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     private void initialization() {
         setToolbar();
+        // use a linear layout manager
         binding.rvList.setLayoutManager(new LinearLayoutManager(getContext()));
+        // use this setting to
+        // improve performance if you know that changes
+        // in content do not change the layout size
+        // of the RecyclerView
         binding.rvList.setHasFixedSize(true);
         mAlbumAdapter = new AlbumsAdapter(getContext(), mAlbumList);
+        // define an adapter
         binding.rvList.setAdapter(mAlbumAdapter);
-
+        // define an Swipe to Refresh  listener
         binding.swipeToRefresh.setOnRefreshListener(this);
 
         callGetAlbumList();
@@ -81,12 +88,20 @@ public class ListFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         ApiInteractor.getInstance(getContext(), true).getAlbumList(paramsMap, new ApiResult<Albums>() {
             @Override
             public void onSuccess(Albums response) {
+                // Disables the refresh icon
                 binding.swipeToRefresh.setRefreshing(false);
                 mAlbumList.clear();
                 mAlbumList.addAll(response.getItems());
                 mAlbumAdapter.notifyDataSetChanged();
 
 
+            }
+
+            @Override
+            public void onFailure(String error) {
+                super.onFailure(error);
+                // Disables the refresh icon
+                binding.swipeToRefresh.setRefreshing(false);
             }
         });
     }

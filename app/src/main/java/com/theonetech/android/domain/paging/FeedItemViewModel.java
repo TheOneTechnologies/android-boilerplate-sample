@@ -18,8 +18,8 @@ public class FeedItemViewModel extends ViewModel {
 
 
     /**
-    ** A PagedList is a List which loads its data in chunks (pages) from a DataSource.
-    ** using LivePagedListBuilder to get a LiveData<PagedList>, it will initialize PagedLists on a background thread for you.
+    * A PagedList is a List which loads its data in chunks (pages) from a DataSource.
+    * using LivePagedListBuilder to get a LiveData<PagedList>, it will initialize PagedLists on a background thread for you.
     **/
     public FeedItemViewModel() {
 

@@ -13,7 +13,7 @@ public class FeedSourceFactory extends DataSource.Factory {
     private MutableLiveData<PageKeyedDataSource<Integer, Works>> itemLiveDataSource = new MutableLiveData<>();
 
 
-    /*
+    /**
     * The DataSource should invalidate itself if the snapshot is no longer valid.
     * If a DataSource becomes invalid, the only way to query more data is to create a new DataSource from the Factory.
     * */
@@ -25,7 +25,7 @@ public class FeedSourceFactory extends DataSource.Factory {
         return itemDataSource;
     }
 
-    /*
+    /**
     * Incremental data loader for page-keyed content, where requests return keys for next/previous pages.
     * e.g Implement a DataSource using PageKeyedDataSource if you need to use data from page N - 1 to load page N.
     */

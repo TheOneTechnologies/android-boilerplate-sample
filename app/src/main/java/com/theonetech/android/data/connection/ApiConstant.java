@@ -1,6 +1,9 @@
 package com.theonetech.android.data.connection;
 
 public class ApiConstant {
+    /**
+     * Api Constant
+     */
 
     public static final String BASE_URL = "http://27.109.4.58:7123/";
     //    public static final String ROOT_URL = "http://127.0.0.1/";
