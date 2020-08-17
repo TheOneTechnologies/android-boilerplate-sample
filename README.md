@@ -1,4 +1,4 @@
-# Android Basic Sample App
+# Android Sample App(App structure)
 
 **Android basic app structure include basic class,library and utils.
 That help to create easily new Project Structure and get below basic things that every project needs.**
