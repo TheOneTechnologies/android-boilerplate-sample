@@ -68,7 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
     }
-
+   //Check Validation
     protected boolean checkValidations(String username, String password) {
 
         if (username.isEmpty()) {

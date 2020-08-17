@@ -24,8 +24,13 @@ import androidx.annotation.NonNull;
  * Created by bhoomika prajapati on 8/11/20.
  */
 public class ImagePickerDialog extends Dialog {
+
+ /**
+  * Image Picker dialog,dialog contain 2 option for select Image
+  * Select Image from camera and select Image From Gallery
+  * */
+
     private Context mContext;
-    private List<String> mList = new ArrayList<>();
     private TextView textCancel, textGallery, textCamera;
     private OnItemClickListener mOnItemClickListener;
 

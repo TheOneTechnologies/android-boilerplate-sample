@@ -72,6 +72,7 @@ public class ListFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         ((HomeActivity) Objects.requireNonNull(getActivity())).setToolbarTitle(getString(R.string.str_album_list));
     }
 
+    //Api call for Album list
     private void callGetAlbumList() {
         HashMap<String, Object> paramsMap = new HashMap<>();
         paramsMap.put(Const.PAGE_NUMBER, 1);

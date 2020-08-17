@@ -5,6 +5,10 @@ package com.theonetech.android.domain.utils;
  */
 public class Const {
 
+
+    /**
+     * Whole Application constant exclude Api Constant
+     * */
     public static String PASSWORD = "password";
     public static String USERNAME = "userName";
     public static String SCHOOL_ID = "schoolId";
