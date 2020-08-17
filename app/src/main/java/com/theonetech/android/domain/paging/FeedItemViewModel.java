@@ -1,7 +1,6 @@
 package com.theonetech.android.domain.paging;
 
 
-import android.content.Context;
 
 import com.theonetech.android.domain.model.Works;
 
@@ -18,6 +17,10 @@ public class FeedItemViewModel extends ViewModel {
     public int PAGE_SIZE = 50;
 
 
+    /**
+    ** A PagedList is a List which loads its data in chunks (pages) from a DataSource.
+    ** using LivePagedListBuilder to get a LiveData<PagedList>, it will initialize PagedLists on a background thread for you.
+    **/
     public FeedItemViewModel() {
 
         FeedSourceFactory itemDataSourceFactory = new FeedSourceFactory();
@@ -31,6 +34,5 @@ public class FeedItemViewModel extends ViewModel {
         itemPagedList = (new LivePagedListBuilder(itemDataSourceFactory, pagedListConfig)).build();
 
     }
-
 
 }

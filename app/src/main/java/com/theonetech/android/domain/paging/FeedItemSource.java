@@ -29,10 +29,10 @@ public class FeedItemSource extends PageKeyedDataSource<Integer, Works> {
     }
 
 
-    /*
-    * This method is called first to initialize a PagedList with data. If it's possible to count the items that can be loaded by the DataSource,
-    * This enables PagedLists presenting data from this source to display placeholders to represent unloaded items.
-    * */
+    /**
+    ** This method is called first to initialize a PagedList with data. If it's possible to count the items that can be loaded by the DataSource,
+    ** This enables PagedLists presenting data from this source to display placeholders to represent unloaded items.
+    **/
     @Override
     public void loadInitial(@NonNull LoadInitialParams<Integer> params, @NonNull final LoadInitialCallback<Integer, Works> callback) {
 
@@ -49,10 +49,10 @@ public class FeedItemSource extends PageKeyedDataSource<Integer, Works> {
     }
 
 
-    /*
-    * It's valid to return a different list size than the page size if it's easier,
-    * e.g. Data may be passed synchronously during the load method, or deferred and called at a later time.
-    * Further loads going down will be blocked until the callback is called.
+    /**
+    ** It's valid to return a different list size than the page size if it's easier,
+    ** e.g. Data may be passed synchronously during the load method, or deferred and called at a later time.
+    ** Further loads going down will be blocked until the callback is called.
     * */
     @Override
     public void loadBefore(@NonNull final LoadParams<Integer> params, @NonNull final LoadCallback<Integer, Works> callback) {
@@ -69,10 +69,10 @@ public class FeedItemSource extends PageKeyedDataSource<Integer, Works> {
         });
     }
 
-    /*
-    * It's valid to return a different list size than the page size if it's easier,
-    * e.g. is called in the subsequent fetches, mostly after the user scrolls and reaches the end of the list
-    * */
+    /**
+    ** It's valid to return a different list size than the page size if it's easier,
+    ** e.g. is called in the subsequent fetches, mostly after the user scrolls and reaches the end of the list
+    **/
     @Override
     public void loadAfter(@NonNull final LoadParams<Integer> params, @NonNull final LoadCallback<Integer, Works> callback) {
 
