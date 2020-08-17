@@ -48,6 +48,7 @@ public class LoginActivityTest {
     private MockWebServer mMockWebServer;
     private ApiInterface mApiService;
 
+    //SetUp MockWebServer And OkHttpClient for check Retrofit Api
     @Before
     public void setup() {
         try {
@@ -80,6 +81,7 @@ public class LoginActivityTest {
         }
     }
 
+    //Success response for Api
     @Test
     public void testSuccessfulResponse() {
         //Assign response to mock response
@@ -105,6 +107,7 @@ public class LoginActivityTest {
         }
     }
 
+    //Failure response of api
     @Test
     public void testFailedResponse() {
         final Dispatcher dispatcher = new Dispatcher() {
