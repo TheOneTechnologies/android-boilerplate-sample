@@ -45,12 +45,14 @@ public class ExampleInstrumentedTest {
 
 
     //********************** Test Case of ValidationUtils class ********************
+    //Tests whether a String is null or empty
     @Test
     public void emailValidator_IsBlank_Type_Test() {
         //Expected (java.lang.AssertionError)
         assertTrue(ValidationUtils.isBlank("test"));
     }
 
+    //Tests whether a String is null or empty
     @Test
     public void emailValidator_IsBlank_Type_Empty() {
         //it's valid because, Input is blank
@@ -58,18 +60,19 @@ public class ExampleInstrumentedTest {
     }
 
 
-    //isValidEmail
-
+    //Tests whether a String is a valid email address.
     @Test
     public void emailValidator_CorrectEmailSimple_ReturnsTrue() {
-        //it's valid because, Input is format is valid
-        assertTrue(ValidationUtils.isValidEmail("kaneriya@gmail.com"));
+        //it's not valid because, Input value is not valid format for email address
+        //Exception (java.lang.AssertionError)
+        assertTrue(ValidationUtils.isValidEmail("test.com"));
     }
 
+    //Tests whether a String is a valid email address.
     @Test
     public void emailValidator_CorrectEmailSubDomain_ReturnsTrue() {
         //it's valid because, Input is format is valid
-        assertTrue(ValidationUtils.isValidEmail("name@email.co.uk"));
+        assertTrue(ValidationUtils.isValidEmail("test@email.co.uk"));
     }
 
 
@@ -207,68 +210,5 @@ public class ExampleInstrumentedTest {
     public void testAssertSame() {
         Integer aNumber = Integer.valueOf(768);
         assertSame("should be same", aNumber, aNumber);
-    }
-
-
-    // ---------------- Common JUnit Matchers assertThat -----------------
-    @Test
-    public void testAssertThatBothContainsString() {
-        assertThat("albumen", both(containsString("a")).and(containsString("b")));
-    }
-
-    @Test
-    public void testAssertThatHasItems() {
-        assertThat(Arrays.asList("one", "two", "three"), hasItems("one", "three"));
-    }
-
-    @Test
-    public void testAssertThatEveryItemContainsString() {
-        assertThat(Arrays.asList(new String[] { "fun", "ban", "net" }), everyItem(containsString("n")));
-    }
-
-    // Core Hamcrest Matchers with assertThat
-    @Test
-    public void testAssertThatHamcrestCoreMatchers() {
-        assertThat("good", allOf(equalTo("good"), startsWith("good")));
-        assertThat("good", not(allOf(equalTo("bad"), equalTo("good"))));
-        assertThat(7, not(CombinableMatcher.<Integer> either(equalTo(3)).or(equalTo(4))));
-        assertThat(new Object(), not(sameInstance(new Object())));
-    }
-
-    @Test
-    public void testAssertTrue() {
-        assertTrue("failure - should be true", true);
-    }
-
-
-    // ---------------- Common Collection class JUnit assert test -----------------
-
-    private List<String> generateStingList() {
-        String[] sentence = {"android", "context", "service", "manifest", "layout", "resource", "broadcast", "receiver", "gradle"};
-        return Arrays.asList(sentence);
-    }
-
-    @Test
-    public void testWithAsserts() {
-        List<String> list = generateStingList();
-        assertTrue(list.contains("android"));
-        assertTrue(list.contains("context"));
-        assertTrue(list.size() > 4);
-        assertTrue(list.size() < 13);
-    }
-
-    @Test
-    public void testWithBigAssert() {
-        List<String> list = generateStingList();
-        assertTrue(list.contains("android") && list.contains("context") && list.size() > 3 && list.size() < 12);
-    }
-
-    @Test
-    public void testFailureWithAsserts() {
-        List<String> list = generateStingList();
-        assertTrue(list.contains("android"));
-        assertTrue(list.contains("service"));
-        assertTrue(list.size() > 3);
-        assertTrue(list.size() < 12);
     }
 }

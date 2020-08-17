@@ -1,15 +1,17 @@
 package com.theonetech.android.domain.utils;
 
-import android.util.Patterns;
+import java.util.regex.Pattern;
 
 /**
  * Created by bhoomika prajapati on 8/12/20.
  */
 public class ValidationUtils {
 
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(".+@.+\\.[a-z]+");
 
     public static boolean isValidEmail(String email) {
-        return !email.isEmpty() || Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        //return !email.isEmpty() || Patterns.EMAIL_ADDRESS.matcher(email).matches();
+        return EMAIL_PATTERN.matcher(email).matches();
     }
 
     public static boolean isMinLength(String input, Integer minLength) {
@@ -17,8 +19,7 @@ public class ValidationUtils {
     }
 
     public static boolean isBlank(String input) {
-        return input.trim().isEmpty() || input.length() <= 0;
+        return input == null || input.trim().isEmpty() || input.length() <= 0;
     }
-
 
 }
