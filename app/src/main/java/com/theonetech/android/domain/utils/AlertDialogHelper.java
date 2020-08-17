@@ -13,7 +13,10 @@ import com.theonetech.android.R;
 
 
 public class AlertDialogHelper {
-
+         /**
+          * Custom Alert dialog helper class
+          *
+          *  */
 
 
     public static void showAlertDialog(Context context, int icon, String title, String message, String positive, String negative, OnDialogClickListener onDialogClickListener, boolean isCancelable) {

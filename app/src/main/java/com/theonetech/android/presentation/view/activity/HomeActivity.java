@@ -58,6 +58,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         setListener();
     }
 
+    //Set Toolbar
     private void setToolbar() {
         ImageView imageView = findViewById(R.id.ivLeft);
         tvToolbarTitle = findViewById(R.id.tvTitle);
@@ -65,6 +66,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         imageView.setOnClickListener(v -> binding.drawer.openDrawer(GravityCompat.START));
     }
 
+    //SetDrawer And add Fragment
     private void setDrawer() {
 
         mFragment = new PaginationListFragment();
@@ -93,6 +95,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
         });
     }
 
+    //Image Picker dialog
     private void showPictureDialog() {
 
         ImagePickerDialog imagePickerDialog = new ImagePickerDialog(this, new ImagePickerDialog.OnItemClickListener() {

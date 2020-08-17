@@ -6,6 +6,10 @@ import android.content.Context;
 
 public class GlobalApplication extends Application {
 
+    /**
+     * Application
+     * */
+
     private static Context mContext;
 
     @Override
