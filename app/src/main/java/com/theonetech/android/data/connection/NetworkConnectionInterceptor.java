@@ -11,6 +11,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class NetworkConnectionInterceptor implements Interceptor {
+
+    /**
+     * check Network connection custom class,Add as Interceptor in OkHttpClient
+     * */
  
     private Context mContext;
  

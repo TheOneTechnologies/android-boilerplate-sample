@@ -24,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
  */
 public class AlbumsAdapter extends RecyclerView.Adapter<AlbumsAdapter.MyViewHolder> {
 
+
+
     private Context context;
     private List<AlbumsItem> albumsList;
 

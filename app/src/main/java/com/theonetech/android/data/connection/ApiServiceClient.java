@@ -12,6 +12,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiServiceClient {
 
+    /**
+     * ApiService Client Retrofit Client Class
+     * */
+
     private static long TIME = 2;
     private static ApiServiceClient mInstance;
 

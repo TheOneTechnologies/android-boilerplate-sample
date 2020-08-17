@@ -23,6 +23,11 @@ import retrofit2.Response;
 
 abstract class RetrofitCallback<T> implements Callback<T> {
 
+    /**
+     * Retrofit callback custom class,
+     * onSuccess and onFailure retrofit Override method
+     * */
+
     private Context mContext;
     private ProgressDialog mProgressDialog;
 
