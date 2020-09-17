@@ -14,6 +14,7 @@
     <string name = "str_enter_name">Enter Name</string>
     <string name = "str_enter_email">Enter Email</string>
     <string name = "str_enter_password">Enter Password</string>
+    <string name = "str_enter_confirm_password">Enter Confirm Password</string>
     <string name = "str_register">SignUp</string>
     <string name = "str_logout">Logout</string>
 

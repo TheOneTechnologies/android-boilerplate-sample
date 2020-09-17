@@ -16,14 +16,17 @@ import com.google.android.material.navigation.NavigationView;
 import com.nabinbhandari.android.permissions.PermissionHandler;
 import com.nabinbhandari.android.permissions.Permissions;
 import com.theonetech.android.R;
+
 import com.theonetech.android.databinding.ActivityHomeBinding;
 import com.theonetech.android.domain.utils.AlertDialogHelper;
 import com.theonetech.android.domain.utils.SharedPrefUtils;
 import com.theonetech.android.domain.utils.Utils;
+
 import com.theonetech.android.presentation.baseclass.BaseActivity;
 import com.theonetech.android.presentation.dialog.ImagePickerDialog;
 import com.theonetech.android.presentation.view.fragment.ListFragment;
 import com.theonetech.android.presentation.view.fragment.PaginationListFragment;
+import com.theonetech.android.presentation.view.login.LoginActivity;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -76,7 +79,7 @@ public class HomeActivity extends BaseActivity implements NavigationView.OnNavig
 
     private void setListener() {
         binding.navView.setNavigationItemSelectedListener(this);
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         imageNavHeader = headerView.findViewById(R.id.nav_header_imageView);
 

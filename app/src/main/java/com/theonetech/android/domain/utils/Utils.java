@@ -34,7 +34,7 @@ public class Utils {
         return editText.getText().toString().trim();
     }
 
-    public static void openActivity(Activity context, Class<?> activityClass, boolean isFinish) {
+    public static void startActivity(Activity context, Class<?> activityClass, boolean isFinish) {
         Intent i = new Intent(context, activityClass);
         context.startActivity(i);
         if (isFinish)

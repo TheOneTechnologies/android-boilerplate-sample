@@ -1,4 +1,4 @@
-package com.theonetech.android.presentation.utils;
+package com.theonetech.android.domain.utils;
 
 import com.theonetech.android.domain.application.GlobalApplication;
 

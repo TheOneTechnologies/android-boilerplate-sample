@@ -1,6 +1,7 @@
 package com.theonetech.android.presentation.view.activity;
 
 import com.theonetech.android.R;
+import com.theonetech.android.presentation.view.register.RegisterActivity;
 
 import org.hamcrest.core.AllOf;
 import org.junit.Rule;

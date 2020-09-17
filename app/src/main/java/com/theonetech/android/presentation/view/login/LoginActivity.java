@@ -1,9 +1,7 @@
-package com.theonetech.android.presentation.view.activity;
+package com.theonetech.android.presentation.view.login;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 
 import com.google.gson.JsonObject;
 import com.theonetech.android.R;
@@ -15,75 +13,59 @@ import com.theonetech.android.domain.utils.Const;
 import com.theonetech.android.domain.utils.NotificationUtils;
 import com.theonetech.android.domain.utils.SharedPrefUtils;
 import com.theonetech.android.domain.utils.Utils;
-import com.theonetech.android.domain.utils.ValidationUtils;
+import com.theonetech.android.presentation.view.activity.HomeActivity;
+import com.theonetech.android.presentation.view.register.RegisterActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity {
 
-    private ActivityLoginBinding binding = null;
+
+    LoginViewModel loginViewModel;
+
+    private ActivityLoginBinding binding;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
+
+        binding = DataBindingUtil.setContentView(LoginActivity.this, R.layout.activity_login);
+
+        //The ViewModelProviders is responsible for creating, storing, and retrieving the view models.
+        loginViewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+
+        binding.setLoginViewModel(loginViewModel);
+
+        /**
+         *  holding this state of the lifecycle, objects can observe this state and react accordingly.
+         *  In order to keep a track of this state
+         * */
+
+        getLifecycle().addObserver(loginViewModel);
+
+
         initialization();
 
     }
 
     private void initialization() {
-        setListener();
-    }
-
-    private void setListener() {
-        binding.btnLogin.setOnClickListener(this);
-        binding.btnRegister.setOnClickListener(this);
-    }
 
 
-    @Override
-    public void onClick(View v) {
-        // TODO Auto-generated method stub
-        switch (v.getId()) {
-            case R.id.btn_login:
-                if (checkValidations(
-                        Utils.getText(binding.edtUsername),
-                        Utils.getText(binding.edtPassword))) {
+        loginViewModel.errorMsg.observe(this, integer -> {
+            Utils.showToast(LoginActivity.this, getResources().getString(integer));
+        });
 
-                    callLoginApi();
-                }
+        loginViewModel.isValidate.observe(this, aBoolean -> callLoginApi());
 
-                break;
+        loginViewModel.isOpenSignUpScreen.observe(this, aBoolean -> Utils.startActivity(LoginActivity.this, RegisterActivity.class, true));
 
-            case R.id.btn_register:
-                Intent i = new Intent(getApplicationContext(), RegisterActivity.class);
-                startActivity(i);
-                break;
-
-            default:
-                break;
-
-        }
 
     }
-   //Check Validation
-    protected boolean checkValidations(String username, String password) {
 
-        if (username.isEmpty()) {
-            Utils.showToast(this, getResources().getString(R.string.error_msg_empty_username));
-            return false;
-        } else if (password.isEmpty()) {
-            Utils.showToast(this, getResources().getString(R.string.error_msg_empty_password));
-            return false;
-        } else if (ValidationUtils.isMinLength(password, 6)) {
-            Utils.showToast(this, getResources().getString(R.string.error_msg_invalid_password));
-            return false;
-        }
-
-        return true;
-    }
 
     private void callLoginApi() {
 
@@ -105,7 +87,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     }
 
 
-                    Utils.openActivity(LoginActivity.this, HomeActivity.class, true);
+                    Utils.startActivity(LoginActivity.this, HomeActivity.class, true);
 
                 } catch (Exception e) {
                     e.printStackTrace();

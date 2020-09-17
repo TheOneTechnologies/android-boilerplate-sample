@@ -10,23 +10,13 @@ import com.theonetech.android.domain.utils.DateUtils;
 import com.theonetech.android.domain.utils.Logger;
 import com.theonetech.android.domain.utils.ValidationUtils;
 
-import org.hamcrest.core.CombinableMatcher;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.Arrays;
-import java.util.List;
-
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.AllOf.allOf;
-import static org.hamcrest.core.CombinableMatcher.both;
-import static org.hamcrest.core.Every.everyItem;
 import static org.hamcrest.core.IsCollectionContaining.hasItems;
-import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNot.not;
-import static org.hamcrest.core.IsSame.sameInstance;
-import static org.hamcrest.core.StringContains.containsString;
-import static org.hamcrest.core.StringStartsWith.startsWith;
 import static org.junit.Assert.*;
 
 /**

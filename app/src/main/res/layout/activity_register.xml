@@ -2,8 +2,21 @@
 <layout xmlns:android = "http://schemas.android.com/apk/res/android"
         xmlns:app = "http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
+    <data>
 
+
+     <!--   <variable
+                name = "registerActivity"
+                type = "com.theonetech.android.presentation.view.register.RegisterActivity" />-->
+
+        <variable
+                name = "registerViewModel"
+                type = "com.theonetech.android.presentation.view.register.RegisterViewModel" />
+
+    </data>
+
+
+    <LinearLayout
             android:layout_width = "match_parent"
             android:layout_height = "match_parent"
             android:orientation = "vertical"
@@ -13,8 +26,8 @@
                 android:id = "@+id/image_back"
                 android:layout_width = "@dimen/_35sdp"
                 android:layout_height = "@dimen/_35sdp"
+                android:onClick = "@{(v)->registerViewModel.onClick(v)}"
                 android:src = "@drawable/ic_back"
-                android:visibility = "gone"
                 app:tint = "@color/colorPrimary" />
 
         <androidx.core.widget.NestedScrollView
@@ -52,6 +65,7 @@
                           android:inputType = "textCapWords"
                           android:padding = "@dimen/_10sdp"
                           android:singleLine = "true"
+                          android:text = "@={registerViewModel.username}"
                           android:textColor = "@color/colorBlack"
                           android:textSize = "@dimen/_14sdp" />
 
@@ -67,6 +81,7 @@
                         android:inputType = "textEmailAddress"
                         android:padding = "@dimen/_10sdp"
                         android:singleLine = "true"
+                        android:text = "@={registerViewModel.emailAddress}"
                         android:textColor = "@color/colorBlack"
                         android:textSize = "@dimen/_14sdp" />
 
@@ -81,6 +96,7 @@
                         android:inputType = "textPassword"
                         android:padding = "@dimen/_10sdp"
                         android:singleLine = "true"
+                        android:text = "@={registerViewModel.password}"
                         android:textColor = "@color/colorBlack"
                         android:textSize = "@dimen/_14sdp" />
 
@@ -90,11 +106,12 @@
                         android:layout_width = "match_parent"
                         android:layout_height = "wrap_content"
                         android:layout_marginBottom = "@dimen/_10sdp"
-                        android:hint = "@string/str_enter_password"
+                        android:hint = "@string/str_enter_confirm_password"
                         android:importantForAutofill = "no"
                         android:inputType = "textPassword"
                         android:padding = "@dimen/_10sdp"
                         android:singleLine = "true"
+                        android:text = "@={registerViewModel.confirmPassword}"
                         android:textColor = "@color/colorBlack"
                         android:textSize = "@dimen/_14sdp" />
 
@@ -109,6 +126,7 @@
                         android:layout_marginTop = "@dimen/_20sdp"
                         android:background = "@color/colorPrimary"
                         android:elevation = "@dimen/_5sdp"
+                        android:onClick = "@{(v)->registerViewModel.onClick(v)}"
                         android:text = "@string/str_register"
                         android:textAllCaps = "false"
                         android:textColor = "@color/colorWhite"
@@ -121,19 +139,16 @@
                         android:layout_height = "wrap_content"
                         android:layout_marginTop = "@dimen/_20sdp"
                         android:background = "@color/colorGray"
+                        android:onClick = "@{(v)->registerViewModel.onClick(v)}"
                         android:text = "@string/login"
                         android:textAllCaps = "false"
                         android:textColor = "@color/colorPrimary"
                         android:textSize = "@dimen/_14sdp" />
+
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
-    <data>
 
-        <variable
-                name = "register"
-                type = "com.theonetech.android.presentation.view.activity.RegisterActivity" />
-    </data>
 </layout>

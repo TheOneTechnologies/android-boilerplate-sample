@@ -8,6 +8,7 @@ import com.theonetech.android.databinding.ActivitySplashBinding;
 import com.theonetech.android.domain.utils.Const;
 import com.theonetech.android.domain.utils.SharedPrefUtils;
 import com.theonetech.android.domain.utils.Utils;
+import com.theonetech.android.presentation.view.login.LoginActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,10 +29,10 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(() -> {
 
             if (SharedPrefUtils.getBooleanData(SplashActivity.this, Const.IS_LOGGED_IN)) {
-                Utils.openActivity(this, HomeActivity.class, true);
+                Utils.startActivity(this, HomeActivity.class, true);
 
             } else {
-                Utils.openActivity(this, LoginActivity.class, true);
+                Utils.startActivity(this, LoginActivity.class, true);
 
             }
         }, 2000);

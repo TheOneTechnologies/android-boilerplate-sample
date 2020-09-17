@@ -7,7 +7,7 @@ import com.theonetech.android.data.connection.ApiServiceClient;
 import com.theonetech.android.data.connection.NetworkConnectionInterceptor;
 import com.theonetech.android.domain.application.GlobalApplication;
 import com.theonetech.android.domain.utils.Const;
-import com.theonetech.android.presentation.utils.FileReader;
+import com.theonetech.android.domain.utils.FileReader;
 import com.theonetech.android.presentation.view.fragment.ListFragment;
 import com.theonetech.android.presentation.view.fragment.PaginationListFragment;
 

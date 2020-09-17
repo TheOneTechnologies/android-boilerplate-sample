@@ -21,6 +21,11 @@ public class User {
     @Expose
     private String image;
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }

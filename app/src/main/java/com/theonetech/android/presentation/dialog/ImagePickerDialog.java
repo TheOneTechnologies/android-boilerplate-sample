@@ -15,9 +15,6 @@ import android.widget.TextView;
 
 import com.theonetech.android.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import androidx.annotation.NonNull;
 
 /**

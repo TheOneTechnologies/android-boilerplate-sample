@@ -1,21 +1,26 @@
-package com.theonetech.android.presentation.view.activity;
+package com.theonetech.android.presentation.view.register;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.theonetech.android.R;
 import com.theonetech.android.databinding.ActivityRegisterBinding;
+import com.theonetech.android.domain.utils.Logger;
 import com.theonetech.android.domain.utils.Utils;
 import com.theonetech.android.domain.utils.ValidationUtils;
+import com.theonetech.android.presentation.view.login.LoginActivity;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.ViewModelProvider;
 
-public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
+public class RegisterActivity extends AppCompatActivity {
 
 
     private ActivityRegisterBinding binding = null;
+    private RegisterViewModel registerViewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,18 +30,28 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     }
 
     private void initialization() {
-        setListener();
+
+        //The ViewModelProviders is responsible for creating, storing, and retrieving the view models.
+        registerViewModel = new ViewModelProvider(this).get(RegisterViewModel.class);
+
+        binding.setRegisterViewModel(registerViewModel);
+
+        getLifecycle().addObserver(registerViewModel);
+
     }
 
-    private void setListener() {
-        binding.btnLogin.setOnClickListener(this);
-        binding.btnRegister.setOnClickListener(this);
-    }
 
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
+
+
+
+
+
+   /* public void onClick(View view) {
+
+        Logger.e("Register...");
+
+    *//*    switch (view.getId()) {
             case R.id.btn_register:
                 if (checkValidations(
                         Utils.getText(binding.edtName),
@@ -48,7 +63,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
                 break;
             case R.id.btn_login:
-                Utils.openActivity(this,LoginActivity.class,true);
+                Utils.startActivity(this, LoginActivity.class, true);
                 break;
 
             case R.id.image_back:
@@ -58,13 +73,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
             default:
                 break;
-        }
+        }*//*
 
-    }
+    }*/
 
     private void setUserdata() {
 
-        Utils.openActivity(this,LoginActivity.class,true);
+        Utils.startActivity(this, LoginActivity.class, true);
 
     }
 
@@ -96,6 +111,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     @Override
     public void onBackPressed() {
-        // super.onBackPressed();
+        super.onBackPressed();
+        finish();
     }
 }

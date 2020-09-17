@@ -3,6 +3,13 @@
         xmlns:tools = "http://schemas.android.com/tools">
 
 
+    <data>
+
+        <variable
+                name = "loginViewModel"
+                type = "com.theonetech.android.presentation.view.login.LoginViewModel" />
+    </data>
+
     <androidx.cardview.widget.CardView
             android:id = "@+id/card_view"
             android:layout_width = "match_parent"
@@ -24,6 +31,7 @@
                          android:layout_width = "@dimen/_80sdp"
                          android:layout_height = "@dimen/_80sdp"
                          android:layout_gravity = "center"
+
                          android:layout_marginTop = "@dimen/_100sdp"
                          android:contentDescription = "@string/image_description"
                          android:src = "@drawable/ic_logo" />
@@ -37,7 +45,8 @@
                         android:autofillHints = "@string/username"
                         android:hint = "@string/username"
                         android:inputType = "text"
-                        android:padding = "@dimen/_10sdp" />
+                        android:padding = "@dimen/_10sdp"
+                        android:text = "@={loginViewModel.emailAddress}" />
 
                  <androidx.appcompat.widget.AppCompatEditText
                          android:id = "@+id/edt_password"
@@ -46,7 +55,8 @@
                          android:autofillHints = "@string/password"
                          android:hint = "@string/password"
                          android:inputType = "textPassword"
-                         android:padding = "@dimen/_10sdp" />
+                         android:padding = "@dimen/_10sdp"
+                         android:text = "@={loginViewModel.password}" />
 
 
 
@@ -58,10 +68,11 @@
                     android:layout_gravity = "center"
                     android:layout_marginTop = "@dimen/_20sdp"
                     android:background = "@color/colorPrimary"
+                    android:onClick = "@{(v)->loginViewModel.onClick(v)}"
                     android:text = "@string/login"
                     android:textAllCaps = "false"
-                    android:textSize = "@dimen/_14sdp"
-                    android:textColor = "@color/colorWhite" />
+                    android:textColor = "@color/colorWhite"
+                    android:textSize = "@dimen/_14sdp" />
 
               <androidx.appcompat.widget.AppCompatButton
                       android:id = "@+id/btn_register"
@@ -71,6 +82,7 @@
                       android:layout_marginTop = "@dimen/_20sdp"
                       android:background = "@color/colorGray"
                       android:text = "@string/str_register"
+                      android:onClick="@{(v)->loginViewModel.onClick(v)}"
                       android:textAllCaps = "false"
                       android:textColor = "@color/colorPrimary"
                       android:textSize = "@dimen/_14sdp" />
@@ -82,10 +94,5 @@
 
 
 
-    <data>
 
-        <variable
-                name = "login"
-                type = "com.theonetech.android.presentation.view.activity.LoginActivity" />
-    </data>
 </layout>
